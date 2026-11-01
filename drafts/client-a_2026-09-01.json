@@ -1,0 +1,152 @@
+{
+  "status": "draft_pending_review",
+  "human_review_required": true,
+  "generated_at": "2026-10-30T03:36:36+00:00",
+  "mode": "mock",
+  "model": "mock",
+  "metrics": {
+    "client_id": "client-a",
+    "reporting_week": {
+      "start": "2026-09-01",
+      "end": "2026-09-07",
+      "timezone": "America/New_York"
+    },
+    "locations": [
+      {
+        "location": "north",
+        "qualified_leads": 2,
+        "qualified_lead_ids": [
+          "L001",
+          "L002"
+        ],
+        "unknown_qualification": 0,
+        "unknown_lead_ids": [],
+        "unqualified": 1,
+        "ad_spend": "300.00",
+        "cost_per_qualified_lead": "150.00",
+        "cost_note": null
+      },
+      {
+        "location": "south",
+        "qualified_leads": 2,
+        "qualified_lead_ids": [
+          "L008",
+          "L011"
+        ],
+        "unknown_qualification": 1,
+        "unknown_lead_ids": [
+          "L009"
+        ],
+        "unqualified": 0,
+        "ad_spend": "150.00",
+        "cost_per_qualified_lead": "75.00",
+        "cost_note": null
+      }
+    ],
+    "total": {
+      "location": "total",
+      "qualified_leads": 4,
+      "qualified_lead_ids": [
+        "L001",
+        "L002",
+        "L008",
+        "L011"
+      ],
+      "unknown_qualification": 1,
+      "unknown_lead_ids": [
+        "L009"
+      ],
+      "unqualified": 1,
+      "ad_spend": "450.00",
+      "cost_per_qualified_lead": "112.50",
+      "cost_note": null
+    },
+    "allowed_metrics": [
+      "north.ad_spend",
+      "north.cost_per_qualified_lead",
+      "north.qualified_leads",
+      "north.unknown_qualification",
+      "north.unqualified",
+      "south.ad_spend",
+      "south.cost_per_qualified_lead",
+      "south.qualified_leads",
+      "south.unknown_qualification",
+      "south.unqualified",
+      "total.ad_spend",
+      "total.cost_per_qualified_lead",
+      "total.qualified_leads",
+      "total.unknown_qualification",
+      "total.unqualified"
+    ],
+    "allowed_lead_ids": [
+      "L001",
+      "L002",
+      "L008",
+      "L009",
+      "L011"
+    ],
+    "notes": [
+      "qualified_lead_ids are confirmed qualified leads (qualified = true).",
+      "unknown_lead_ids have a blank qualified value; they are not qualified and not unqualified.",
+      "cost_per_qualified_lead is null where it is not available; cost_note says why.",
+      "This data cannot show bookings, revenue, or return on ad spend."
+    ]
+  },
+  "ai_draft": {
+    "summary": "client-a: 4 qualified leads, $450.00 ad spend, $112.50 per qualified lead for 2026-09-01 to 2026-09-07.",
+    "observations": [
+      {
+        "text": "4 qualified leads for the week on $450.00 of ad spend, a cost per qualified lead of $112.50.",
+        "evidence": {
+          "metrics": [
+            "total.qualified_leads",
+            "total.ad_spend",
+            "total.cost_per_qualified_lead"
+          ],
+          "lead_ids": [
+            "L001",
+            "L002",
+            "L008",
+            "L011"
+          ]
+        }
+      },
+      {
+        "text": "1 lead has no qualification value yet and is not counted as qualified.",
+        "evidence": {
+          "metrics": [
+            "total.unknown_qualification"
+          ],
+          "lead_ids": [
+            "L009"
+          ]
+        }
+      },
+      {
+        "text": "south cost $75.00 per qualified lead against $150.00 in north.",
+        "evidence": {
+          "metrics": [
+            "south.cost_per_qualified_lead",
+            "north.cost_per_qualified_lead"
+          ],
+          "lead_ids": []
+        }
+      }
+    ],
+    "next_steps": [
+      "Ask the client to qualify L009 so next week's count is complete.",
+      "Compare against next week before changing any budget; one week is too little to act on."
+    ],
+    "limitations": [
+      "One week of synthetic assessment data; no trend or comparison period.",
+      "Unknown-qualification leads are excluded from the qualified count until the client confirms them.",
+      "Ad spend is per location; organic leads have no spend attached."
+    ]
+  },
+  "validation": {
+    "ok": true,
+    "errors": [],
+    "warnings": []
+  },
+  "ai_raw_response": "{\n  \"summary\": \"client-a: 4 qualified leads, $450.00 ad spend, $112.50 per qualified lead for 2026-09-01 to 2026-09-07.\",\n  \"observations\": [\n    {\n      \"text\": \"4 qualified leads for the week on $450.00 of ad spend, a cost per qualified lead of $112.50.\",\n      \"evidence\": {\n        \"metrics\": [\n          \"total.qualified_leads\",\n          \"total.ad_spend\",\n          \"total.cost_per_qualified_lead\"\n        ],\n        \"lead_ids\": [\n          \"L001\",\n          \"L002\",\n          \"L008\",\n          \"L011\"\n        ]\n      }\n    },\n    {\n      \"text\": \"1 lead has no qualification value yet and is not counted as qualified.\",\n      \"evidence\": {\n        \"metrics\": [\n          \"total.unknown_qualification\"\n        ],\n        \"lead_ids\": [\n          \"L009\"\n        ]\n      }\n    },\n    {\n      \"text\": \"south cost $75.00 per qualified lead against $150.00 in north.\",\n      \"evidence\": {\n        \"metrics\": [\n          \"south.cost_per_qualified_lead\",\n          \"north.cost_per_qualified_lead\"\n        ],\n        \"lead_ids\": []\n      }\n    }\n  ],\n  \"next_steps\": [\n    \"Ask the client to qualify L009 so next week's count is complete.\",\n    \"Compare against next week before changing any budget; one week is too little to act on.\"\n  ],\n  \"limitations\": [\n    \"One week of synthetic assessment data; no trend or comparison period.\",\n    \"Unknown-qualification leads are excluded from the qualified count until the client confirms them.\",\n    \"Ad spend is per location; organic leads have no spend attached.\"\n  ]\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "summary": "client-a had 4 qualified leads this week, and client-b had 2 on $700.00 spend.",
+  "observations": [
+    {
+      "text": "client-a cost per qualified lead was $112.50 against $350.00 for client-b.",
+      "evidence": {"metrics": ["total.cost_per_qualified_lead"], "lead_ids": ["L001", "L003"]}
+    }
+  ],
+  "next_steps": ["Shift budget from client-b to client-a."],
+  "limitations": ["One week of data."]
+}

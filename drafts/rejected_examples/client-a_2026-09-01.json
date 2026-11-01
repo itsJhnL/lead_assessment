@@ -1,0 +1,108 @@
+{
+  "status": "rejected_ai_output_metrics_only",
+  "human_review_required": true,
+  "generated_at": "2026-10-30T03:37:49+00:00",
+  "mode": "mock-file:bad_cross_client.json",
+  "model": "mock",
+  "metrics": {
+    "client_id": "client-a",
+    "reporting_week": {
+      "start": "2026-09-01",
+      "end": "2026-09-07",
+      "timezone": "America/New_York"
+    },
+    "locations": [
+      {
+        "location": "north",
+        "qualified_leads": 2,
+        "qualified_lead_ids": [
+          "L001",
+          "L002"
+        ],
+        "unknown_qualification": 0,
+        "unknown_lead_ids": [],
+        "unqualified": 1,
+        "ad_spend": "300.00",
+        "cost_per_qualified_lead": "150.00",
+        "cost_note": null
+      },
+      {
+        "location": "south",
+        "qualified_leads": 2,
+        "qualified_lead_ids": [
+          "L008",
+          "L011"
+        ],
+        "unknown_qualification": 1,
+        "unknown_lead_ids": [
+          "L009"
+        ],
+        "unqualified": 0,
+        "ad_spend": "150.00",
+        "cost_per_qualified_lead": "75.00",
+        "cost_note": null
+      }
+    ],
+    "total": {
+      "location": "total",
+      "qualified_leads": 4,
+      "qualified_lead_ids": [
+        "L001",
+        "L002",
+        "L008",
+        "L011"
+      ],
+      "unknown_qualification": 1,
+      "unknown_lead_ids": [
+        "L009"
+      ],
+      "unqualified": 1,
+      "ad_spend": "450.00",
+      "cost_per_qualified_lead": "112.50",
+      "cost_note": null
+    },
+    "allowed_metrics": [
+      "north.ad_spend",
+      "north.cost_per_qualified_lead",
+      "north.qualified_leads",
+      "north.unknown_qualification",
+      "north.unqualified",
+      "south.ad_spend",
+      "south.cost_per_qualified_lead",
+      "south.qualified_leads",
+      "south.unknown_qualification",
+      "south.unqualified",
+      "total.ad_spend",
+      "total.cost_per_qualified_lead",
+      "total.qualified_leads",
+      "total.unknown_qualification",
+      "total.unqualified"
+    ],
+    "allowed_lead_ids": [
+      "L001",
+      "L002",
+      "L008",
+      "L009",
+      "L011"
+    ],
+    "notes": [
+      "qualified_lead_ids are confirmed qualified leads (qualified = true).",
+      "unknown_lead_ids have a blank qualified value; they are not qualified and not unqualified.",
+      "cost_per_qualified_lead is null where it is not available; cost_note says why.",
+      "This data cannot show bookings, revenue, or return on ad spend."
+    ]
+  },
+  "ai_draft": null,
+  "validation": {
+    "ok": false,
+    "errors": [
+      "unknown_lead_id: observation 1 cites 'L003', which is not one of this client's lead IDs",
+      "other_client_data: response mentions 'client-b' but the selected client is 'client-a'"
+    ],
+    "warnings": [
+      "unverified_number: '350' appears in the text but not in this client's metrics",
+      "unverified_number: '700' appears in the text but not in this client's metrics"
+    ]
+  },
+  "ai_raw_response": "{\n  \"summary\": \"client-a had 4 qualified leads this week, and client-b had 2 on $700.00 spend.\",\n  \"observations\": [\n    {\n      \"text\": \"client-a cost per qualified lead was $112.50 against $350.00 for client-b.\",\n      \"evidence\": {\"metrics\": [\"total.cost_per_qualified_lead\"], \"lead_ids\": [\"L001\", \"L003\"]}\n    }\n  ],\n  \"next_steps\": [\"Shift budget from client-b to client-a.\"],\n  \"limitations\": [\"One week of data.\"]\n}\n"
+}

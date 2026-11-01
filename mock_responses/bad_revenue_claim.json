@@ -1,0 +1,11 @@
+{
+  "summary": "4 qualified leads on $450.00 ad spend, $112.50 per qualified lead, with strong return on ad spend.",
+  "observations": [
+    {
+      "text": "North produced 2 qualified leads that should convert into about $3,000 of revenue and 2 bookings.",
+      "evidence": {"metrics": ["north.qualified_leads"], "lead_ids": ["L001", "L002"]}
+    }
+  ],
+  "next_steps": ["Increase the north budget by 50% to capture more revenue."],
+  "limitations": ["Revenue is estimated."]
+}

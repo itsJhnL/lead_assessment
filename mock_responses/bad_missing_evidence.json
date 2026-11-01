@@ -1,0 +1,15 @@
+{
+  "summary": "4 qualified leads on $450.00 ad spend, $112.50 per qualified lead.",
+  "observations": [
+    {
+      "text": "Lead quality improved noticeably compared with last week.",
+      "evidence": {"metrics": [], "lead_ids": []}
+    },
+    {
+      "text": "South is the best performing location at $75.00 per qualified lead.",
+      "evidence": {"metrics": ["south.cost_per_qualified_lead", "south.win_rate"], "lead_ids": ["L008", "L011", "L099"]}
+    }
+  ],
+  "next_steps": ["Keep the current budget split."],
+  "limitations": ["One week of data."]
+}

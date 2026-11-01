@@ -1,0 +1,5 @@
+client_id,location,spend
+client-a,north,300.00
+client-a,south,150.00
+client-b,north,500.00
+client-b,south,200.00
